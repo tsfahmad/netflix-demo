@@ -12,7 +12,7 @@ function App() {
       <InstagramLogin
         clientId="473669417373668"
         buttonText="Login"
-        scope="likes+comments+follower_list"
+        scope="user_profile+user_media"
         onSuccess={responseInstagram}
         onFailure={responseInstagram}
       />
