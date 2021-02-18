@@ -1,21 +1,20 @@
-import InstagramLogin from 'react-instagram-login';
+import { useState } from 'react';
 import './App.css';
+import Login from './components/login';
 
 function App() {
-  const responseInstagram = (response) => {
-    console.log(response);
-  }
 
-  
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <div className="App">
-      <InstagramLogin
-        clientId="473669417373668"
-        buttonText="Login"
-        scope="user_profile+user_media"
-        onSuccess={responseInstagram}
-        onFailure={responseInstagram}
-      />
+      <Login 
+      clientId="473669417373668" 
+      scope="user_profile+user_media"
+      success={() => setLoggedIn(true)}
+    />
+      {loggedIn ? 'Welcome to Insta': 'Logging In ...'}
+
     </div>
   );
 }
