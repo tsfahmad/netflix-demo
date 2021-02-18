@@ -1,6 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
 import InstagramLogin from 'react-instagram-login';
+import './App.css';
 
 function App() {
   const responseInstagram = (response) => {
