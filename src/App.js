@@ -11,7 +11,7 @@ function App() {
       <Login 
       clientId="473669417373668" 
       scope="user_profile+user_media"
-      success={() => setLoggedIn(true)}
+      onSuccess={setLoggedIn}
     />
       {loggedIn ? 'Welcome to Insta': 'Logging In ...'}
 
