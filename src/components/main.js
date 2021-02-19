@@ -18,7 +18,7 @@ const Main = ({userInfo}) => {
         <div> {user ? 
         <>
             `Welcome ${user.username}!! You user Id ${user_id}`
-            <MediaList list={user?.media} user_id={user_id} access_token={access_token}/>
+            <MediaList list={user?.media?.data} access_token={access_token}/>
         </>
         : 'Loading ...'} </div>
     )
