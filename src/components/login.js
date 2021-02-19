@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const Login = ({clientId, scope, onSuccess}) => {
 
     useEffect(() => {
-        const redirectUri = window.location.href
+        const redirectUri = window.location.origin
         if (window.location.search.includes('code')) {
             const urlParams = new URLSearchParams(window.location.search);
             const code = urlParams.get('code');
