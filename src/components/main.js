@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MediaList from "./media-list";
 import FriendList from "./friend-list";
+import EngagementMetric from './engagement-metric';
 
 const Main = ({userInfo}) => {
     const [user, setUser] = useState(null);
@@ -20,6 +21,7 @@ const Main = ({userInfo}) => {
         <>
             `Welcome ${user.username}!! You user Id ${user_id}`
             <MediaList list={user?.media?.data} access_token={access_token}/>
+            <EngagementMetric user_id={user_id} access_token={access_token}/>
             <FriendList access_token={access_token}/>
         </>
         : 'Loading ...'} </div>
