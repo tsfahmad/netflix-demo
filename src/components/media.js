@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-const Media = ({id, access_token}) => {
+const Media = ({media_id, access_token}) => {
     const [media, setMedia] = useState(null);
 
     useEffect(() => {
-        fetch(`https://graph.instagram.com/${id}}?fields=id,media_type,media_url,username,timestamp&access_token=${access_token}`)
+        fetch(`https://graph.instagram.com/${media_id}}?fields=id,media_type,media_url,username,timestamp&access_token=${access_token}`)
         .then(response => response.json())
         .then(response =>setMedia(response.data));
-    }, [access_token, id]);
+    }, [access_token, media_id]);
 
     const getMedia = () => {
         if(media) {

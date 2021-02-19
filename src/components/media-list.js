@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Media from './Media';
+import Media from './media';
 
 const MediaList = ({user_id, access_token}) => {
     const [list, setList] = useState([]);
@@ -11,7 +11,7 @@ const MediaList = ({user_id, access_token}) => {
     }, [access_token, user_id]);
 
     return <div>
-        {list.map(({ id }) => <Media id={id}/>)}
+        {list.map(({ id }) => <Media media_id={id} access_token={access_token}/>)}
     </div>
 }
 

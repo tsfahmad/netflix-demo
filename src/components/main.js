@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import MediaList from "./media-list";
 
 const Main = ({userInfo}) => {
     const [user, setUser] = useState(null);
@@ -14,7 +15,12 @@ const Main = ({userInfo}) => {
 
 
     return (
-        <div> {user ? `Welcome ${user.username}!! You user Id ${user_id}`: 'Loading ...'} </div>
+        <div> {user ? 
+        <>
+            `Welcome ${user.username}!! You user Id ${user_id}`
+            <MediaList user_id={user_id} access_token={access_token}/>
+        </>
+        : 'Loading ...'} </div>
     )
 }
 
