@@ -6,7 +6,7 @@ const Media = ({media_id, access_token}) => {
     useEffect(() => {
         fetch(`https://graph.instagram.com/${media_id}?fields=id,media_type,media_url,username,timestamp&access_token=${access_token}`)
         .then(response => response.json())
-        .then(response =>setMedia(response.data));
+        .then(data =>setMedia(data));
     }, [access_token, media_id]);
 
     const getMedia = () => {
