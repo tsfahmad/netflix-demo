@@ -6,7 +6,7 @@ const Main = ({userInfo}) => {
 
     useEffect(() => {
         if(access_token) {
-            fetch(`https://graph.instagram.com/me?fields=id,username,media_count,account_type,media&access_token=${access_token}`)
+            fetch(`https://graph.instagram.com/me?fields=id,username,media_count,account_type&access_token=${access_token}`)
             .then(response => response.json())
             .then(data =>setUser(data));
         }
