@@ -1,19 +1,20 @@
 import { useState } from 'react';
 import './App.css';
 import Login from './components/login';
+import Main from './components/main'
 
 function App() {
 
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [authCode, setAuthCode] = useState(null);
 
   return (
     <div className="App">
       <Login 
       clientId="473669417373668" 
       scope="user_profile+user_media"
-      onSuccess={setLoggedIn}
+      onSuccess={setAuthCode}
     />
-      {loggedIn ? 'Welcome to Insta': 'Logging In ...'}
+      {authCode ? <Main code={authCode}/>: 'Logging In ...'}
 
     </div>
   );

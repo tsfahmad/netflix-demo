@@ -6,7 +6,8 @@ const Login = ({clientId, scope, onSuccess}) => {
     useEffect(() => {
         const redirectUri = window.location.href
         if (window.location.search.includes('code')) {
-            onSuccess(true);
+            const urlParams = new URLSearchParams(window.location.search);
+            onSuccess(urlParams.get('code'));
           } 
           else {
             window.location.href = `https://api.instagram.com/oauth/authorize/?app_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&response_type=code`
