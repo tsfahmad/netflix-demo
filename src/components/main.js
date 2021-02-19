@@ -7,7 +7,7 @@ const Main = ({userInfo}) => {
 
     useEffect(() => {
         if(access_token) {
-            fetch(`https://graph.instagram.com/me?fields=id,username,media_count,account_type&access_token=${access_token}`)
+            fetch(`https://graph.instagram.com/me?fields=id,username,media_count,account_type,media&access_token=${access_token}`)
             .then(response => response.json())
             .then(data =>setUser(data));
         }
@@ -18,7 +18,7 @@ const Main = ({userInfo}) => {
         <div> {user ? 
         <>
             `Welcome ${user.username}!! You user Id ${user_id}`
-            <MediaList user_id={user_id} access_token={access_token}/>
+            <MediaList list={user?.media} user_id={user_id} access_token={access_token}/>
         </>
         : 'Loading ...'} </div>
     )
