@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import MediaList from "./media-list";
+import FriendList from "./friend-list";
 
 const Main = ({userInfo}) => {
     const [user, setUser] = useState(null);
@@ -19,6 +20,7 @@ const Main = ({userInfo}) => {
         <>
             `Welcome ${user.username}!! You user Id ${user_id}`
             <MediaList list={user?.media?.data} access_token={access_token}/>
+            <FriendList access_token={access_token}/>
         </>
         : 'Loading ...'} </div>
     )
