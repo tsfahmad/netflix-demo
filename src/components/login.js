@@ -33,9 +33,7 @@ const Login = ({clientId, scope, onSuccess}) => {
               body: formBody
             })
             .then(response => response.json())
-            .then(data => console.log(data));
-
-            onSuccess(code);
+            .then(data => onSuccess(data));
           } 
           else {
             window.location.href = `https://api.instagram.com/oauth/authorize/?app_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&response_type=code`

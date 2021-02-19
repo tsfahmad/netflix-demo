@@ -5,16 +5,16 @@ import Main from './components/main'
 
 function App() {
 
-  const [authCode, setAuthCode] = useState(null);
+  const [userInfo, setUserInfo] = useState(null);
 
   return (
     <div className="App">
       <Login 
       clientId="473669417373668" 
       scope="user_profile+user_media"
-      onSuccess={setAuthCode}
+      onSuccess={setUserInfo}
     />
-      {authCode ? <Main code={authCode}/>: 'Logging In ...'}
+      {userInfo ? <Main userInfo={userInfo}/>: 'Logging In ...'}
 
     </div>
   );
