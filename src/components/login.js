@@ -16,10 +16,21 @@ const Login = ({clientId, scope, onSuccess}) => {
               code: code
             };
 
+            let formBody = [];
+            for (let property in data) {
+              var encodedKey = encodeURIComponent(property);
+              var encodedValue = encodeURIComponent(data[property]);
+              formBody.push(encodedKey + "=" + encodedValue);
+            }
+            formBody = formBody.join("&");
+
             fetch('https://api.instagram.com/oauth/access_token', {
               method: 'POST',
               mode: 'cors',
-              body: JSON.stringify(data)
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+              },
+              body: formBody
             })
             .then(response => response.json())
             .then(data => console.log(data));
